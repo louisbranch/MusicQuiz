@@ -1,8 +1,9 @@
-%h1 Tracks
+%h2 Tracks
 = link_to 'New Track', new_theme_track_path(@theme)
 %ol
   - @tracks.each do |track|
     %li
+      %audio{:controls => "controls", :src => "#{track.song.file_path}.mp3"}
       = track.song.name
       \ -  
       = track.song.artist.name

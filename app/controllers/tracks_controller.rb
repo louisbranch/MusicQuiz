@@ -31,6 +31,7 @@ class TracksController < ApplicationController
   def edit
     @theme = Theme.find(params[:theme_id])
     @track = @theme.tracks.find(params[:id])
+    @artists = Artist.all
   end
   
   def update

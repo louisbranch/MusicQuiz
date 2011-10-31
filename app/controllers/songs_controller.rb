@@ -2,13 +2,13 @@ class SongsController < ApplicationController
   respond_to :html, :xml, :json
   
   def index
-    @artist = Artist.find(params[:artist_id])
-    @songs = @artist.songs
+    @songs = Song.all
   end
   
   def show
     @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.find(params[:id])
+    @aliases = @song.aliases
   end
   
   def new

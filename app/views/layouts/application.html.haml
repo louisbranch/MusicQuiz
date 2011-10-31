@@ -6,4 +6,8 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+  %nav
+    =link_to 'Themes', themes_path
+    =link_to 'Artists', artists_path
+    %hr     
   = yield

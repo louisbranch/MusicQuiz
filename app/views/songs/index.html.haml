@@ -1,8 +1,11 @@
-%h1 Songs
+%h2 Songs
+- if @songs.empty?
+  none
+- else
+  %ol
+    - @songs.each do |song|
+      %li
+        = link_to song.name, artist_song_path(@artist,song)
+        = link_to 'Edit', edit_artist_song_path(@artist,song)
+        = link_to 'Delete', artist_song_path(@artist,song), :confirm => 'Are you sure?', :method => :delete
 = link_to 'New Song', new_artist_song_path(@artist)
-%ol
-  - @songs.each do |song|
-    %li
-      = song.name
-      = link_to 'Edit', edit_artist_song_path(@artist,song)
-      = link_to 'Delete', artist_song_path(@artist,song), :confirm => 'Are you sure?', :method => :delete

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031021722) do
+ActiveRecord::Schema.define(:version => 20111031140623) do
+
+  create_table "aliases", :force => true do |t|
+    t.string   "name"
+    t.integer  "aliasable_id"
+    t.string   "aliasable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "artists", :force => true do |t|
     t.string   "name"

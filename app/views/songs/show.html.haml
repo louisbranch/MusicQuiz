@@ -1,0 +1,3 @@
+%h1= "#{@song.name} by #{@song.artist.name}"
+=render :template => 'aliases/index', :collection => @aliases
+=link_to 'New Alias', new_artist_song_alias_path(@artist, @song)

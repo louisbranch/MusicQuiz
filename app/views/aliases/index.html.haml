@@ -1,0 +1,8 @@
+%h2 Aliases
+- if @aliases.empty?
+  %p none
+- else
+  %ul
+    - @aliases.each do |alternative|
+      %li
+        = alternative.name
