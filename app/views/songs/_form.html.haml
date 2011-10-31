@@ -1,0 +1,5 @@
+=form_for([@artist, @song]) do |f|
+  %div
+    =f.label :name, 'Name:'
+    =f.text_field :name, :autofocus => true
+  =f.submit

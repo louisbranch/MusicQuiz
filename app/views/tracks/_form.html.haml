@@ -1,0 +1,5 @@
+=form_for([@theme, @track]) do |f|
+  %div
+    =f.label :song, 'Song name:'
+    =f.grouped_collection_select(:song_id, @artists, :songs, :name, :id, :name)
+  =f.submit

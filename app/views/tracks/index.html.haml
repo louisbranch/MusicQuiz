@@ -1,0 +1,9 @@
+%h1 Tracks
+= link_to 'New Track', new_theme_track_path(@theme)
+%ol
+  - @tracks.each do |track|
+    %li
+      = track.song.name
+      \ -  
+      = track.song.artist.name
+      = link_to 'Edit', edit_theme_track_path(@theme,track) 
