@@ -2,6 +2,7 @@
 %html
   %head
     %title MuiscQuiz
+    = stylesheet_link_tag "https://fonts.googleapis.com/css?family=Fontdiner+Swanky"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -11,4 +12,5 @@
       %p= current_user.first_name
     - else
       = link_to 'Login', new_users_path 
+  %h1 MusicQuiz
   = yield

@@ -52,7 +52,7 @@ $ trackControllers = ->
       item = $("#track_active")
       $(item).hide()
       $(item).attr('id','')
-      $(item).next().show()
+      $(item).next().fadeIn()
       $(item).next().attr('id','track_active')
       hideControllers()
       false
@@ -61,11 +61,12 @@ $ trackControllers = ->
       $(item).attr('id','')
       $(item).hide()
       $(item).prev().attr('id','track_active')
-      $(item).prev().show()
+      $(item).prev().fadeIn()
       hideControllers()
       false
     $(end).click ->
       alert "Bitch, please!"
+      false
 
 window.onload = ->
   inputListener()

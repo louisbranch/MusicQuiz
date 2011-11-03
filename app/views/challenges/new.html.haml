@@ -1,8 +1,8 @@
-%h1= @theme.name
+%h2= @theme.name
 %div#challenge_tracks
   - @tracks.each_with_index do |track, i|
     %div.track_item{:style => 'display:none'}
-      %h2= "##{i+1} Track:"
+      %h3= "##{i+1} Track:"
       %div.track_player
         %audio{:controls => "controls", :src => "#{track.song.file_path}.mp3"}
       %div.song_item
@@ -12,7 +12,7 @@
         = label_tag "artist_#{track.song.artist.id}", 'Artist:'
         = text_field_tag "artist_#{track.song.artist.id}",'','data-url' => check_artist_url(track.song.artist)
 %div#track_controllers
-  =link_to '<<', "#", :id => "prev_track"
-  =link_to '>>', "#", :id => "next_track"
-  =link_to 'End', "#", :id => "end_challenge"
+  =link_to '<< Prev', "#", :id => "prev_track", :class => "button"
+  =link_to 'Next >>', "#", :id => "next_track", :class => "button"
+  =link_to 'End Quiz', "#", :id => "end_challenge", :class => "button"
   
