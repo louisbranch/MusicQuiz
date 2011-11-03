@@ -1,19 +1,34 @@
 MusicQuiz::Application.routes.draw do
-
-  resources :artists do
-    resources :aliases
-    resources :songs, :except => :index do
-      resources :aliases
-    end
+  
+  resource :canvas, :only => [:show, :create]
+  
+  resource :users, :only => :new do
+    get :callback, :to => :create
   end
 
-  resources :themes do
-    resources :tracks
+  resources :challenges, :only => [:index]
+
+  resources :artists do
+    member do
+        get 'check'
+    end
+    resources :aliases
+    resources :songs, :except => :index do
+      member do
+        get 'check'
+      end
+      resources :aliases
+    end
   end
   
   resources :songs do
     resources :aliases
   end
+
+  resources :themes do
+    resources :tracks
+    resources :challenges, :only => [:show, :new, :create]
+  end
   
-  root :to => 'themes#index'
+  root :to => 'challenges#index'
 end

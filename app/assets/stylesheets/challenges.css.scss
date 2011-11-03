@@ -1,0 +1,27 @@
+div#challenge_tracks{
+	text-align: center;
+	width: 300px;
+	margin: 0 auto;
+	& h2{
+
+	}
+	& input {
+		border: 1px solid #ccc;
+		padding: 5px;
+		&.wrong{
+			background-color: pink;
+		}
+		&.right{
+			background-color: cyan;
+		}
+		&.thinking{
+			background-color: yellow;
+		}
+	}
+}
+
+div#track_controllers{
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+}

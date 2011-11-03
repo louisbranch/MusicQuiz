@@ -7,7 +7,8 @@
     = csrf_meta_tags
   %body
   %nav
-    =link_to 'Themes', themes_path
-    =link_to 'Artists', artists_path
-    %hr     
+    - if authenticated?
+      %p= current_user.first_name
+    - else
+      = link_to 'Login', new_users_path 
   = yield

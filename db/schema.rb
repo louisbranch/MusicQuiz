@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031140623) do
+ActiveRecord::Schema.define(:version => 20111101131623) do
 
   create_table "aliases", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(:version => 20111031140623) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "challenges", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "theme_id"
+    t.string   "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +53,16 @@ ActiveRecord::Schema.define(:version => 20111031140623) do
   create_table "tracks", :force => true do |t|
     t.integer  "theme_id"
     t.integer  "song_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "identifier",   :limit => 20
+    t.string   "access_token"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

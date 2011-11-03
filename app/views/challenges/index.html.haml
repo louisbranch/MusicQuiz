@@ -1,0 +1,5 @@
+%h1 Quizes:
+%ul
+  - @themes.each do |theme|
+    %li
+      = link_to theme.name, new_theme_challenge_path(theme)

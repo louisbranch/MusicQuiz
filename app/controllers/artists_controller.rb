@@ -48,4 +48,15 @@ class ArtistsController < ApplicationController
     end
     redirect_to artists_path
   end
+  
+  def check
+    artist = Artist.find(params[:id])
+    aliases = artist.aliases.collect{|p| p.name.downcase}
+    aliases << artist.name.downcase
+    if aliases.include?(params[:name].downcase)
+      render :text => "Right!", :status => '200'
+    else
+      render :text => 'Wrong!', :status => '404'
+    end
+  end
 end

@@ -42,4 +42,15 @@ class SongsController < ApplicationController
       redirect_to artist_path(@artist), :error => 'An error has occured!'
     end
   end
+  
+  def check
+    song = Song.find(params[:id])
+    aliases = song.aliases.collect{|p| p.name.downcase}
+    aliases << song.name.downcase
+    if aliases.include?(params[:name].downcase)
+      render :text => "Right!", :status => '200'
+    else
+      render :text => 'Wrong!', :status => '404'
+    end
+  end
 end

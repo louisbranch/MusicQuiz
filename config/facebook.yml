@@ -1,0 +1,11 @@
+development: &defaults
+  client_id: 160926967336434
+  client_secret: 17d31f21f2417788ad53e2e84f2c3a4a
+  scope: user_about_me,email,publish_stream
+  canvas_url: http://localhost:3000/
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
