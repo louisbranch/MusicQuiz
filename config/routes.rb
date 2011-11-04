@@ -1,5 +1,7 @@
 MusicQuiz::Application.routes.draw do
   
+  get "pages/index"
+
   resource :canvas, :only => [:show, :create]
   
   resource :users, :only => :new do
@@ -30,5 +32,5 @@ MusicQuiz::Application.routes.draw do
     resources :challenges, :only => [:show, :new, :create]
   end
   
-  root :to => 'challenges#index'
+  root :to => 'pages#index'
 end

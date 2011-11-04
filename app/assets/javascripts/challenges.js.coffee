@@ -64,9 +64,6 @@ $ trackControllers = ->
       $(item).prev().fadeIn()
       hideControllers()
       false
-    $(end).click ->
-      alert "Bitch, please!"
-      false
 
 window.onload = ->
   inputListener()

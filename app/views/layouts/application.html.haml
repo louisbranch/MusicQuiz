@@ -7,10 +7,6 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-  %nav
-    - if authenticated?
-      %p= current_user.first_name
-    - else
-      = link_to 'Login', new_users_path 
   %h1 MusicQuiz
-  = yield
+  %div.wrapper
+    = yield

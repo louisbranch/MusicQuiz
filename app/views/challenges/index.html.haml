@@ -1,5 +1,13 @@
-%h2 Quizes:
-%ul
+%ul#challenge_list
   - @themes.each do |theme|
     %li
-      = link_to theme.name, new_theme_challenge_path(theme)
+      %div.theme_scores
+        %h3 Community Score:
+        %div
+          43%
+      %h2.specialCase= link_to theme.name, new_theme_challenge_path(theme)
+      %p
+        %strong Tracks:
+        =theme.tracks.count
+      %p= theme.description
+      %p= link_to 'Start >>', new_theme_challenge_path(theme), :class => 'button'
