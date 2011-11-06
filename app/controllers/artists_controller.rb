@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  before_filter :authorize, :except => :get
+  before_filter :authorize, :except => :check
   respond_to :html, :xml, :json
   
   def index
