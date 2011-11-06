@@ -3,7 +3,7 @@ class CreateChallenges < ActiveRecord::Migration
     create_table :challenges do |t|
       t.integer :user_id
       t.integer :theme_id
-      t.string :score
+      t.integer :score
       t.timestamps
     end
   end

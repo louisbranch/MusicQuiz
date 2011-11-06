@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20111104165818) do
   create_table "challenges", :force => true do |t|
     t.integer  "user_id"
     t.integer  "theme_id"
-    t.string   "score"
+    t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
