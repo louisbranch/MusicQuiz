@@ -1,4 +1,4 @@
-%h2 Aliases
+%h3 Aliases
 - if @aliases.empty?
   %p none
 - else
@@ -6,3 +6,4 @@
     - @aliases.each do |alternative|
       %li
         = alternative.name
+        = link_to 'Edit', edit_alias_path(alternative)
