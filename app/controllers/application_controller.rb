@@ -19,14 +19,14 @@ class ApplicationController < ActionController::Base
   end
   
   def fb_thumbs_url
-    'http://musicquiz.heroku.com/assets/thumb.jpg'
+    'https://musicquiz.heroku.com/assets/thumb.jpg'
   end
   
   helper_method :admin?
   
   protected
   def admin?
-    current_user == User.first
+    current_user == User.find(1)
   end  
 
   def authorize
