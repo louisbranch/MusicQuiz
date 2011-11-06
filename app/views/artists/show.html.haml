@@ -1,4 +1,4 @@
-%h1= @artist.name
+%h2= @artist.name
 =render :template => 'aliases/index', :collection => @aliases
 =link_to 'New Alias', new_artist_alias_path(@artist)
 =render :template => 'songs/index', :collection => @songs
