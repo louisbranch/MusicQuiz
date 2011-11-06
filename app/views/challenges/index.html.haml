@@ -17,3 +17,6 @@
         =theme.tracks.count
       %p= theme.description
       %p= link_to 'Start >>', new_theme_challenge_path(theme), :class => 'button'
+%div.suggestion_box
+  %p Suggestions or Critics? Email me at
+  %p= mail_to "branco@mobplug.com"
