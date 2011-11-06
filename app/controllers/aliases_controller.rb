@@ -1,5 +1,5 @@
 class AliasesController < ApplicationController
-  before_filter :aliasable
+  before_filter :aliasable, :authorize
   
   def index
     @aliases = @aliasable.aliases

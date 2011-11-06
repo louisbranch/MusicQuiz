@@ -1,4 +1,4 @@
-%h2.specialCase= @theme.name
+%h2.special_case= @theme.name
 %div#challenge_tracks
   = form_for ([@theme,@challenge]) do |f|
     = f.hidden_field :user_id, :value => @user.id
@@ -6,17 +6,22 @@
       %div.track_item{:style => 'display:none'}
         %h3= "##{i+1} Track:"
         %div.track_player
-          %audio{:controls => "controls", :src => "#{track.song.file_path}.mp3"}
+          %audio{:controls => "controls"}
+            %source{:src => "#{track.song.file_path}.ogg", :type => "audio/ogg"}
+            %source{:src => "#{track.song.file_path}.mp3", :type => "audio/mpeg"}
+            <!-- fallback content -->
+            %p Your browser does not support the audio player. Use the latest Firefox or Chrome browsers or
+            %p= link_to 'Download the mp3', "#{track.song.file_path}.mp3", :target => "_blank"
         %div.song_item
           = f.fields_for :answers do |builder|
             = builder.hidden_field :answerable_id, :value => track.song.id
-            = builder.hidden_field :answerable_type, :value => "Song"
+            = builder.hidden_field :answerable_type, :value => track.song.class
             = builder.label :name, 'Song:'
             = builder.text_field :name,'data-url' => check_artist_song_url(track.song.artist,track.song)
         %div.artist_item
           = f.fields_for :answers do |builder|
             = builder.hidden_field :answerable_id, :value => track.song.artist.id
-            = builder.hidden_field :answerable_type, :value => "Artist"
+            = builder.hidden_field :answerable_type, :value => track.song.artist.class
             = builder.label :name, 'Artist:'
             = builder.text_field :name,'data-url' => check_artist_url(track.song.artist)
     %div#track_controllers

@@ -17,17 +17,22 @@ div.wrapper {
 	-webkit-box-shadow: 0 3px 4px #CCC;
 }
 
-h1,h2.specialCase,h3.specialCase{
+h1,h2.special_case,h3.special_case{
 	font-family: 'Fontdiner Swanky', cursive;
 	font-weight: normal;
-	margin: 0.5em 0;
+	margin: 0.4em 0;
   color: #1996BE;
   text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
 }
 
 h1{
+	width: 200px;
+	margin: 0 auto;
+	margin-top: 0.4em;
+	margin-bottom: 0.4em;
+	padding-right: 75px;
 	font-size: 40px;
-	text-align: center;
+	background: url(asset_path("vinyl.png", image)) no-repeat 100% 30%;
 }
 
 h2{
@@ -81,6 +86,32 @@ a.button, input.button {
 	}
 }
 
+p+p{
+	margin-top: 15px;
+}
+
+div#flash_notice{
+	background-color: #E3EBC6;
+	border: 1px solid #C2D288;
+	border-left: 10px solid #C2D288;
+	color: #97AA4F;
+	font-weight: bold;
+	padding: 5px;
+	width: 200px;
+	margin: 10px 0;
+}
+
+div#flash_error{
+	background-color: #F4D0D2;
+	border: 1px solid #F3AEB1;
+	border-left: 10px solid #F3AEB1;
+	color: #B2686B;
+	font-weight: bold;
+	padding: 5px;
+	width: 400px;
+	margin: 10px 0;
+}
+
 ul#challenge_list{
 	list-style-type: none;
 	& li{
@@ -88,7 +119,7 @@ ul#challenge_list{
 		padding-bottom: 10px;
 		& div.theme_scores{
 			float: right;
-			width: 120px;
+			width: 130px;
 			margin: 40px 5px 0 5px;
 			background-color: #F3F3F3;
 			border: 1px solid #EBEBEB;
@@ -97,18 +128,20 @@ ul#challenge_list{
 				font-size: 16px;
 				text-align: center;
 			}
-			& div{
+			& div.theme_avg_score{
+				margin-top: 10px;
 				color: #5FA400;
 				font-size: 30px;
 				font-weight: bold;
 				text-align: center;
+				& div.theme_user_score{
+					margin-top: 10px;
+					font-size: 15px;
+					font-weight: normal;
+				}
 			}
 		}
 		& h2{
-			margin: 0;
-		}
-		& p{
-			margin-bottom: 10px;
 		}
 	}
 }
@@ -145,4 +178,8 @@ div#challenge_tracks{
 		margin-top: 20px;
 		text-align: center;
 	}
+}
+
+form#share_score{
+	margin-top: 20px;
 }

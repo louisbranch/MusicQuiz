@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+  before_filter :authorize, :except => :get
   respond_to :html, :xml, :json
   
   def index

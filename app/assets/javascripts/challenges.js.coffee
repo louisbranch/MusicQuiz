@@ -12,7 +12,7 @@ inputListener = ->
 
 valueCheck = (e) ->
   e.className = ""
-  if e.value.length > 2
+  if e.value.length > 1
     clearTimeout t
     e.className = "thinking"
     t = setTimeout((=> requestValue(e)), 2000)

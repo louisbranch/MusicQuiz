@@ -1,8 +1,22 @@
 class User < ActiveRecord::Base
   has_many :challenges, :dependent => :destroy
+  has_many :themes, :through => :challenges, :uniq => true
     
   def profile
     @profile ||= FbGraph::User.me(self.access_token).fetch
+  end
+  
+  def has_score?(theme)
+    if challenges.where("theme_id = ?", theme).empty?
+      false
+    else
+      true
+    end
+  end
+  
+  def best_score(theme)
+    best = challenges.where("theme_id = ?", theme).first
+    "#{best.score}%"
   end
 
   class << self

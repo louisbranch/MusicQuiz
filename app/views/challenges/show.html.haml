@@ -1,0 +1,8 @@
+%h2.special_case= "Congrats!"
+%p
+  Your score on #{@theme.name} was
+  %strong #{@challenge.score}%!
+=form_tag messages_path, :id => 'share_score' do
+  =hidden_field_tag :user_id, @user.id
+  =hidden_field_tag :challenge_id, @challenge.id
+  =submit_tag 'Share this Score', :class => "button"

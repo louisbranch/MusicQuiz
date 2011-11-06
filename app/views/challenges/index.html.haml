@@ -3,9 +3,15 @@
     %li
       %div.theme_scores
         %h3 Community Score:
-        %div
-          43%
-      %h2.specialCase= link_to theme.name, new_theme_challenge_path(theme)
+        %div.theme_avg_score
+          = "#{theme.avg_score}%"
+          %div.theme_user_score
+            %strong Your Score:
+            - if @user.has_score?(theme)
+              = @user.best_score(theme)
+            - else
+              \-
+      %h2.special_case= link_to theme.name, new_theme_challenge_path(theme)
       %p
         %strong Tracks:
         =theme.tracks.count

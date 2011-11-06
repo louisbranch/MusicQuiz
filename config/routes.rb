@@ -1,7 +1,9 @@
 MusicQuiz::Application.routes.draw do
   
   get "pages/index"
-
+  
+  resource :messages, :only => [:create]
+  
   resource :canvas, :only => [:show, :create]
   
   resource :users, :only => :new do
