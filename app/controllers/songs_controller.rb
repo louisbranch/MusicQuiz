@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  before_filter :require_authentication
   before_filter :authorize, :except => :check
   respond_to :html, :xml, :json
   
