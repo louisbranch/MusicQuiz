@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
   
   def fb_thumbs_url
-    'http://www.google.com.br/images/srpr/logo3w.png'
+    'http://musicquiz.heroku.com/assets/thumb.jpg'
   end
   
   helper_method :admin?
