@@ -4,7 +4,7 @@
     = f.hidden_field :user_id, :value => @user.id
     - @tracks.each_with_index do |track, i|
       %div.track_item{:style => 'display:none'}
-        %h3= "##{i+1} Track:"
+        %h3= "##{i+1} of #{@tracks.count} Tracks:"
         %div.track_player
           %audio{:controls => "controls"}
             %source{:src => "#{track.song.file_path}.ogg", :type => "audio/ogg"}
@@ -16,14 +16,18 @@
           = f.fields_for :answers do |builder|
             = builder.hidden_field :answerable_id, :value => track.song.id
             = builder.hidden_field :answerable_type, :value => track.song.class
-            = builder.label :name, 'Song:'
-            = builder.text_field :name,'data-url' => check_artist_song_url(track.song.artist,track.song)
-        %div.artist_item
-          = f.fields_for :answers do |builder|
-            = builder.hidden_field :answerable_id, :value => track.song.artist.id
-            = builder.hidden_field :answerable_type, :value => track.song.artist.class
-            = builder.label :name, 'Artist:'
-            = builder.text_field :name,'data-url' => check_artist_url(track.song.artist)
+            - if track.song.artist.nil?
+              = builder.label :name, 'Movie:'
+            - else
+              = builder.label :name, 'Song:'
+            = builder.text_field :name,'data-url' => check_song_url(track.song)
+        - unless track.song.artist.nil?
+          %div.artist_item
+            = f.fields_for :answers do |builder|
+              = builder.hidden_field :answerable_id, :value => track.song.artist.id
+              = builder.hidden_field :answerable_type, :value => track.song.artist.class
+              = builder.label :name, 'Artist:'
+              = builder.text_field :name,'data-url' => check_artist_url(track.song.artist)
     %div#track_controllers
       =link_to '<< Prev', "#", :id => "prev_track", :class => "button"
       =link_to 'Next >>', "#", :id => "next_track", :class => "button"

@@ -11,7 +11,7 @@ div.wrapper {
 	width: 700px;
 	margin: 0 auto;
 	padding: 20px;
-	background: white;
+	background: #FFF;
 	border: 1px solid #CCC;
 	-moz-box-shadow: 0 3px 4px #CCC;
 	-webkit-box-shadow: 0 3px 4px #CCC;
@@ -97,7 +97,7 @@ div#flash_notice{
 	color: #97AA4F;
 	font-weight: bold;
 	padding: 5px;
-	width: 200px;
+	width: 400px;
 	margin: 10px 0;
 }
 
@@ -114,34 +114,32 @@ div#flash_error{
 
 ul#challenge_list{
 	list-style-type: none;
-	& li{
+	li{
 		border-bottom: 1px solid #EBEBEB;
 		padding-bottom: 10px;
-		& div.theme_scores{
+		div.theme_scores{
 			float: right;
 			width: 130px;
 			margin: 40px 5px 0 5px;
 			background-color: #F3F3F3;
 			border: 1px solid #EBEBEB;
 			padding: 10px;
-			& h3{
+			h3{
 				font-size: 16px;
 				text-align: center;
 			}
-			& div.theme_avg_score{
+			div.theme_avg_score{
 				margin-top: 10px;
 				color: #5FA400;
 				font-size: 30px;
 				font-weight: bold;
 				text-align: center;
-				& div.theme_user_score{
+				div.theme_user_score{
 					margin-top: 10px;
 					font-size: 15px;
 					font-weight: normal;
 				}
 			}
-		}
-		& h2{
 		}
 	}
 }
@@ -151,13 +149,13 @@ div#challenge_tracks{
 	width: 300px;
 	margin: 0 auto;
 	margin-bottom: 20px;
-	& div.track_player{
+	div.track_player{
 		margin-bottom: 10px;
 	}
-	& label{
+	label{
 		font-weight: bold;
 	}
-	& input {
+	input {
 		border: 1px solid #ccc;
 		padding: 5px;
 		margin: 5px 0;
@@ -172,7 +170,7 @@ div#challenge_tracks{
 			background: url(asset_path("track_thinking.gif", image)) no-repeat 190px 50%;
 		}
 	}
-	& div#track_controllers{
+	div#track_controllers{
 		width: 300px;
 		margin: 0 auto;
 		margin-top: 20px;

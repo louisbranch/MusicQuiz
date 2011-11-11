@@ -2,17 +2,16 @@ trim = (str) ->
   trimmed = str.replace(/^\s+|\s+$/g,"")
   escape(trimmed)
     
-inputListener = -> 
-  if document.getElementById('challenge_tracks')
-    tracks = document.getElementById('challenge_tracks')
-    track_inputs = tracks.getElementsByTagName('input')
+$ inputListener = ->
+  if $('#challenge_tracks').length
+    track_inputs = $('.song_item > input')
     for i in track_inputs
       i.onkeydown = ->
         valueCheck this
 
 valueCheck = (e) ->
   e.className = ""
-  if e.value.length > 1
+  if e.value.length > 0
     clearTimeout t
     e.className = "thinking"
     t = setTimeout((=> requestValue(e)), 2000)
@@ -26,6 +25,15 @@ requestValue = (e) ->
         e.className = "wrong"
     success: ->
         e.className = "right"
+
+stopMusic = ->
+  audio_tags = $('audio')
+  for i in audio_tags
+    i.pause()
+    i.currentTime = 0;
+
+playNextMusic = ->
+  $('#track_active > .track_player > audio')[0].play()
 
 hideControllers = ->
   if $('#track_controllers').length
@@ -55,6 +63,8 @@ $ trackControllers = ->
       $(item).next().fadeIn()
       $(item).next().attr('id','track_active')
       hideControllers()
+      stopMusic()
+      playNextMusic()  
       false
     $(prev).click ->
       item = $("#track_active")
@@ -63,7 +73,6 @@ $ trackControllers = ->
       $(item).prev().attr('id','track_active')
       $(item).prev().fadeIn()
       hideControllers()
+      stopMusic()
+      playNextMusic()
       false
-
-window.onload = ->
-  inputListener()

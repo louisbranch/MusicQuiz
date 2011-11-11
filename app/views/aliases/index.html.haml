@@ -6,4 +6,5 @@
     - @aliases.each do |alternative|
       %li
         = alternative.name
-        = alternative.id
+        = link_to 'Edit', edit_song_alias_path(alternative.aliasable,alternative) if alternative.aliasable.class == Song
+        = link_to 'Edit', edit_artist_alias_path(alternative.aliasable,alternative) if alternative.aliasable.class == Artist

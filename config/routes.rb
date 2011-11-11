@@ -17,15 +17,12 @@ MusicQuiz::Application.routes.draw do
         get 'check'
     end
     resources :aliases
-    resources :songs, :except => :index do
-      member do
-        get 'check'
-      end
-      resources :aliases
-    end
   end
   
   resources :songs do
+    member do
+        get 'check'
+      end
     resources :aliases
   end
 

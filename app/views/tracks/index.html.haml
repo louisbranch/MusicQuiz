@@ -6,5 +6,5 @@
       %audio{:controls => "controls", :src => "#{track.song.file_path}.mp3"}
       = track.song.name
       \ -  
-      = track.song.artist.name
+      = track.song.artist.name unless track.song.artist.nil?
       = link_to 'Edit', edit_theme_track_path(@theme,track) 

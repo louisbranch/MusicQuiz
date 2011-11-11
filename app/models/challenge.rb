@@ -18,10 +18,22 @@ class Challenge < ActiveRecord::Base
   private
   
   def calculate_score
-    tracks = ((theme.tracks.count)*2).to_f # Each track has one song and one artist
+    tracks_total
     correct_answers = (answers.where("correct = ?", true).count).to_f
-    ratio = ((correct_answers/tracks)*100).round
+    ratio = ((correct_answers/tracks_total.to_f)*100).round
     self.score = ratio
   end
   
+  def tracks_total
+    tracks = theme.tracks
+    tracks_total = 0
+    tracks.each do |track|
+      if track.song.artist.nil?
+        tracks_total = tracks_total + 1
+      else
+        tracks_total = tracks_total + 2
+      end
+    end
+    tracks_total
+  end
 end

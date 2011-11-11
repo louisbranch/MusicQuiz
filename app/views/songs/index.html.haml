@@ -5,7 +5,8 @@
   %ol
     - @songs.each do |song|
       %li
-        = link_to song.name, artist_song_path(@artist,song)
-        = link_to 'Edit', edit_artist_song_path(@artist,song)
-        = link_to 'Delete', artist_song_path(@artist,song), :confirm => 'Are you sure?', :method => :delete
-= link_to 'New Song', new_artist_song_path(@artist)
+        = link_to song.name, song_path(song)
+        = song.artist.name unless song.artist.nil?
+        = link_to 'Edit', edit_song_path(song)
+        = link_to 'Delete', song_path(song), :confirm => 'Are you sure?', :method => :delete
+= link_to 'New Song', new_song_path

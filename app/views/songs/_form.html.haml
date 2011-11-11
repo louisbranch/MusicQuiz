@@ -1,4 +1,7 @@
-=form_for([@artist, @song]) do |f|
+=form_for @song do |f|
+  %div
+    =f.label :artist_id, 'Artist:'
+    =f.select(:artist_id, Artist.all.collect {|p| [ p.name, p.id ] }, { :include_blank => 'None' })
   %div
     =f.label :name, 'Name:'
     =f.text_field :name, :autofocus => true

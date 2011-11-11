@@ -8,40 +8,35 @@ class SongsController < ApplicationController
   end
   
   def show
-    @artist = Artist.find(params[:artist_id])
-    @song = @artist.songs.find(params[:id])
+    @song = Song.find(params[:id])
     @aliases = @song.aliases
   end
   
   def new
-    @artist = Artist.find(params[:artist_id])
-    @song = @artist.songs.build
+    @song = Song.new
   end
   
   def create
-    @artist = Artist.find(params[:artist_id])
-    @song = @artist.songs.build(params[:song])
+    @song = Song.new(params[:song])
     if @song.save
       flash[:notice] = 'Song created!'
-      respond_with(@song, :location => artist_path(@artist))
+      respond_with(@song, :location => song_path(@song))
     else
-      redirect_to artist_path(@artist), :error => 'An error has occured!'
+      redirect_to songs_path, :error => 'An error has occured!'
     end
   end
   
   def edit
-    @artist = Artist.find(params[:artist_id])
-    @song = @artist.songs.find(params[:id])
+    @song = Song.find(params[:id])
   end
   
   def update
-    @artist = Artist.find(params[:artist_id])
-    @song = @artist.songs.find(params[:id])
+    @song = Song.find(params[:id])
     if @song.update_attributes(params[:song])
       flash[:notice] = 'Song updated!'
-      respond_with(@song, :location => artist_path(@artist))
+      respond_with(@song, :location => song_path(@song))
     else
-      redirect_to artist_path(@artist), :error => 'An error has occured!'
+      redirect_to song_path, :error => 'An error has occured!'
     end
   end
   

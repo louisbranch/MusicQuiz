@@ -1,8 +1,8 @@
 development: &defaults
-  client_id: 160926967336434
-  client_secret: 17d31f21f2417788ad53e2e84f2c3a4a
+  client_id: 145425388892883
+  client_secret: 644fff9eaa2d9cdeb0c9341afa515954
   scope: user_about_me,email,publish_stream
-  canvas_url: https://apps.facebook.com/musicquiz_mp/
+  canvas_url: https://apps.facebook.com/music_quiz_dev/
 
 test:
   <<: *defaults
